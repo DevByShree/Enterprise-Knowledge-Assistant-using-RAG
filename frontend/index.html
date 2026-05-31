@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My RAG AI</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+</head>
+<body>
+
+  <div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-top">
+        <div class="logo">
+          <span class="logo-icon"><i class="ti ti-brain"></i></span>
+          <span class="logo-text">RAG AI</span>
+        </div>
+        <button class="icon-btn" id="sidebar-toggle" title="Close sidebar">
+          <i class="ti ti-layout-sidebar-left-collapse"></i>
+        </button>
+      </div>
+
+      <button class="new-chat-btn" id="new-chat-btn">
+        <i class="ti ti-plus"></i>
+        <span>New chat</span>
+      </button>
+
+      <div class="section-label">Recent</div>
+      <div class="history-list" id="history-list">
+        <div class="history-item active">
+          <i class="ti ti-message"></i>
+          <span>What is RAG architecture?</span>
+        </div>
+        <div class="history-item">
+          <i class="ti ti-message"></i>
+          <span>Summarize my PDF notes</span>
+        </div>
+        <div class="history-item">
+          <i class="ti ti-message"></i>
+          <span>ChromaDB vs FAISS</span>
+        </div>
+        <div class="history-item">
+          <i class="ti ti-message"></i>
+          <span>LangChain chunking</span>
+        </div>
+        <div class="history-item">
+          <i class="ti ti-message"></i>
+          <span>Embeddings explained</span>
+        </div>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-footer-item">
+          <i class="ti ti-upload"></i>
+          <span>Upload documents</span>
+        </div>
+        <div class="sidebar-footer-item">
+          <i class="ti ti-settings"></i>
+          <span>Settings</span>
+        </div>
+        <div class="sidebar-footer-item profile">
+          <div class="avatar-small">SJ</div>
+          <span>Shree Joshi</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main" id="main">
+
+      <!-- TOP BAR -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="icon-btn" id="sidebar-open" title="Open sidebar" style="display:none;">
+            <i class="ti ti-menu-2"></i>
+          </button>
+          <button class="model-pill">
+            <i class="ti ti-cpu"></i>
+            <span>llama3.2:3b · ChromaDB</span>
+            <i class="ti ti-chevron-down"></i>
+          </button>
+        </div>
+        <div class="topbar-right">
+          <button class="icon-btn" title="Share"><i class="ti ti-share"></i></button>
+          <button class="icon-btn" title="More"><i class="ti ti-dots"></i></button>
+        </div>
+      </header>
+
+      <!-- CHAT AREA -->
+      <div class="chat-area" id="chat-area">
+
+        <!-- EMPTY STATE -->
+        <div class="empty-state" id="empty-state">
+          <div class="empty-icon"><i class="ti ti-brain"></i></div>
+          <h1 class="empty-title">Ask your documents anything</h1>
+          <p class="empty-sub">Your RAG model is ready. Upload PDFs or ask questions about your indexed knowledge base.</p>
+          <div class="suggestions">
+            <button class="suggestion-chip" data-prompt="Summarize the key points from my documents">
+              <i class="ti ti-file-text"></i> Summarize my documents
+            </button>
+            <button class="suggestion-chip" data-prompt="What topics are covered in my knowledge base?">
+              <i class="ti ti-list-search"></i> What topics are covered?
+            </button>
+            <button class="suggestion-chip" data-prompt="Find relevant information about embeddings and vector search">
+              <i class="ti ti-search"></i> Search my knowledge base
+            </button>
+          </div>
+        </div>
+
+        <!-- MESSAGES -->
+        <div class="messages" id="messages"></div>
+
+      </div>
+
+      <!-- INPUT AREA -->
+      <div class="input-area">
+        <div class="input-box" id="input-box">
+          <button class="attach-btn" title="Attach PDF">
+            <i class="ti ti-paperclip"></i>
+          </button>
+          <textarea
+            id="user-input"
+            rows="1"
+            placeholder="Ask anything from your documents…"
+          ></textarea>
+          <button class="send-btn" id="send-btn" disabled title="Send">
+            <i class="ti ti-arrow-up"></i>
+          </button>
+        </div>
+        <p class="input-hint">Your RAG model &middot; Ollama + ChromaDB + all-MiniLM-L6-v2</p>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

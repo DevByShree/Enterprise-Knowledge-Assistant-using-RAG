@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+langchain
+langchain-chroma
+langchain-ollama
+chromadb
+pydantic
+unstructured
+tiktoken
+ollama
+
+
