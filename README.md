@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🧠 Local RAG Chatbot
+#  Local RAG Chatbot
 
 **A fully local Retrieval-Augmented Generation chatbot — no cloud APIs, no data leaks.**
 
@@ -18,13 +18,13 @@
 
 <br/>
 
-![RAG Chatbot Demo](docs/demo.mp4)
+![RAG Chatbot Demo](docs/demo.png)
 
 </div>
 
 ---
 
-## 📑 Table of Contents
+##  Table of Contents
 
 - [Overview](#-overview)
 - [Architecture](#-architecture)
@@ -48,7 +48,7 @@
 
 ---
 
-## 🔍 Overview
+##  Overview
 
 **Local RAG Chatbot** is an end-to-end Retrieval-Augmented Generation (RAG) system that runs completely on your local machine. It allows you to upload PDF or text documents, processes them into a ChromaDB vector store, and answers natural-language questions by retrieving the most relevant context and passing it to a locally running **Llama 3.2** model via Ollama.
 
@@ -56,7 +56,7 @@ No OpenAI key. No cloud. No data ever leaves your system.
 
 ---
 
-## 🏗 Architecture
+##  Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -118,7 +118,7 @@ User Query ──── [nomic-embed-text] ──── [Cosine Similarity Searc
 
 ---
 
-## 🛠 Tech Stack
+##  Tech Stack
 
 | Layer | Technology | Purpose |
 |-------|-----------|---------|
@@ -132,22 +132,22 @@ User Query ──── [nomic-embed-text] ──── [Cosine Similarity Searc
 
 ---
 
-## ✨ Features
+##  Features
 
-- 🔒 **Fully Local** — All models run via Ollama; zero data sent to any external service
-- 📄 **Document Ingestion Pipeline** — Automatically loads, chunks, and indexes your documents
-- ✂️ **Smart Chunking** — LangChain's `RecursiveCharacterTextSplitter` for optimal chunk size
-- 🧬 **Embedding Generation** — `nomic-embed-text` for high-quality semantic embeddings
-- 🗄 **Persistent Vector Store** — ChromaDB stores embeddings on disk across sessions
-- 🔎 **Semantic Search** — Cosine similarity retrieval for relevant context
-- 🤖 **Llama 3.2 Generation** — Local LLM generates grounded, context-aware answers
-- ⚡ **FastAPI Backend** — Async REST API with automatic Swagger docs
-- 🖥 **Custom Chat UI** — Clean, responsive frontend with source attribution
-- 💬 **End-to-End Chat** — From document upload to conversational Q&A in one pipeline
+-  **Fully Local** — All models run via Ollama; zero data sent to any external service
+-  **Document Ingestion Pipeline** — Automatically loads, chunks, and indexes your documents
+-  **Smart Chunking** — LangChain's `RecursiveCharacterTextSplitter` for optimal chunk size
+-  **Embedding Generation** — `nomic-embed-text` for high-quality semantic embeddings
+-  **Persistent Vector Store** — ChromaDB stores embeddings on disk across sessions
+-  **Semantic Search** — Cosine similarity retrieval for relevant context
+-  **Llama 3.2 Generation** — Local LLM generates grounded, context-aware answers
+-  **FastAPI Backend** — Async REST API with automatic Swagger docs
+-  **Custom Chat UI** — Clean, responsive frontend with source attribution
+-  **End-to-End Chat** — From document upload to conversational Q&A in one pipeline
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 local-rag-chatbot/
@@ -173,7 +173,7 @@ local-rag-chatbot/
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 
@@ -265,7 +265,7 @@ llama3.2:latest         ...             2.0 GB  ...
 nomic-embed-text:latest ...             274 MB  ...
 ```
 
-> ⚠️ **Note:** Keep Ollama running in the background before starting the backend. It serves on `http://localhost:11434` by default.
+>  **Note:** Keep Ollama running in the background before starting the backend. It serves on `http://localhost:11434` by default.
 
 ---
 
@@ -292,7 +292,7 @@ Expected output:
 [INFO] Splitting into chunks...
 [INFO] Generated 142 chunks
 [INFO] Generating embeddings and storing in ChromaDB...
-[INFO] ✅ Ingestion complete. 142 chunks stored.
+[INFO]  Ingestion complete. 142 chunks stored.
 ```
 
 > 💡 Re-run ingestion whenever you add new documents to `docs/`.
@@ -324,11 +324,11 @@ python -m http.server 5500 --directory frontend
 # Then visit: http://localhost:5500
 ```
 
-> ✅ Make sure the FastAPI server is running before opening the frontend.
+>  Make sure the FastAPI server is running before opening the frontend.
 
 ---
 
-## 📖 API Documentation
+##  API Documentation
 
 ### Base URL
 
@@ -396,7 +396,7 @@ Auto-generated Swagger UI (built into FastAPI).
 
 ---
 
-## 💡 Example Requests & Responses
+##  Example Requests & Responses
 
 ### cURL
 
@@ -450,7 +450,7 @@ console.log(data.answer);
 ## 🐛 Troubleshooting
 
 <details>
-<summary><strong>❌ Ollama connection refused</strong></summary>
+<summary><strong> Ollama connection refused</strong></summary>
 
 **Error:** `Connection refused at http://localhost:11434`
 
@@ -461,7 +461,7 @@ ollama serve
 </details>
 
 <details>
-<summary><strong>❌ Model not found</strong></summary>
+<summary><strong> Model not found</strong></summary>
 
 **Error:** `model 'llama3.2' not found`
 
@@ -473,7 +473,7 @@ ollama pull nomic-embed-text
 </details>
 
 <details>
-<summary><strong>❌ ChromaDB empty / no results</strong></summary>
+<summary><strong> ChromaDB empty / no results</strong></summary>
 
 **Error:** Returns empty answers or "I don't know"
 
@@ -485,7 +485,7 @@ python backend/ingestion_pipeline.py
 </details>
 
 <details>
-<summary><strong>❌ CORS error in browser</strong></summary>
+<summary><strong> CORS error in browser</strong></summary>
 
 **Error:** `CORS policy: No 'Access-Control-Allow-Origin'`
 
@@ -503,7 +503,7 @@ app.add_middleware(
 </details>
 
 <details>
-<summary><strong>❌ Slow responses</strong></summary>
+<summary><strong> Slow responses</strong></summary>
 
 Llama 3.2 runs on CPU by default if you don't have a compatible GPU. This is expected.
 
@@ -529,7 +529,7 @@ Llama 3.2 runs on CPU by default if you don't have a compatible GPU. This is exp
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome! Here's how:
 
@@ -543,7 +543,7 @@ Please follow [Conventional Commits](https://www.conventionalcommits.org/) for c
 
 ---
 
-## 👨‍💻 Author
+## Author
 
 **Shree Joshi**
 - GitHub: [@DevByShree](https://github.com/DevByShree)
@@ -551,7 +551,7 @@ Please follow [Conventional Commits](https://www.conventionalcommits.org/) for c
 
 ---
 
-## 📄 License
+##  License
 
 This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
 
@@ -559,8 +559,8 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 
 <div align="center">
 
-⭐ **If this project helped you, please give it a star!** ⭐
+ **If this project helped you, please give it a star!** ⭐
 
-*Built with ❤️ using LangChain, Ollama, and ChromaDB*
+*Built with  using LangChain, Ollama, and ChromaDB*
 
 </div>
