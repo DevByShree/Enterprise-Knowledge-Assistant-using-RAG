@@ -18,7 +18,7 @@
 
 <br/>
 
-![RAG Chatbot Demo](docs/demo.png)
+![RAG Chatbot Demo](docs/demo.mp4)
 
 </div>
 
